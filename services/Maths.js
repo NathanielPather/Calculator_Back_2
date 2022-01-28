@@ -1,8 +1,8 @@
 module.exports = function(equation) {
-    parts = equation.split(" ");
+    let operator = findOperator(equation);
+    parts = equation.split(operator);
     let num1 = parseInt(parts[0]);
-    let num2 = parseInt(parts[2]);
-    let operator = parts[1];
+    let num2 = parseInt(parts[1]);
 
     switch(operator) {
         case '+':
@@ -15,5 +15,15 @@ module.exports = function(equation) {
             return num1 / num2;
         default:
             return 'Math error: case not found';
+    }
+}
+
+function findOperator(equation) {
+    let operators = ['+', '-', 'X', '/'];
+    for(let i = 0; i < operators.length; i++) {
+        let operator = operators[i];
+        if(equation.includes(operator)) {
+            return operator;
+        }
     }
 }

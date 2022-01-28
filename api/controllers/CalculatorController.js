@@ -6,7 +6,6 @@ exports.calculate = function(req, res){
 
 exports.post = function(req, res){
     let solution = maths(req.body.value);
-    // console.log(solution);
     return res.json({ 
         message: solution,
         redirect: '/'

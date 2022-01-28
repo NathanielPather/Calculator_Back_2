@@ -1,16 +1,14 @@
 'use strict';
-
+var maths = require('../../services/Maths.js');
 exports.calculate = function(req, res){
     console.log('works');
 };
 
 exports.post = function(req, res){
-    console.log(req.body);
-    /*
+    let solution = maths(req.body.value);
+    // console.log(solution);
     return res.json({ 
-        message: '5+5=10',
+        message: solution,
         redirect: '/'
     });
-    */
-   return res.redirect('/');
 }

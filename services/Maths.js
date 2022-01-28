@@ -1,8 +1,8 @@
 module.exports = function(equation) {
     let operator = findOperator(equation);
     parts = equation.split(operator);
-    let num1 = parseInt(parts[0]);
-    let num2 = parseInt(parts[1]);
+    let num1 = parseFloat(parts[0]);
+    let num2 = parseFloat(parts[1]);
 
     switch(operator) {
         case '+':

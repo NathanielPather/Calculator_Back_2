@@ -5,7 +5,12 @@ exports.calculate = function(req, res){
 };
 
 exports.post = function(req, res){
-    console.log('post works');
-    res.json({ message: '5+5=10' });
-    res.redirect('/');
-};
+    console.log(req.body);
+    /*
+    return res.json({ 
+        message: '5+5=10',
+        redirect: '/'
+    });
+    */
+   return res.redirect('/');
+}

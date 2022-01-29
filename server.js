@@ -1,10 +1,19 @@
 var express = require('express');
 var cors = require("cors");
+const expressPinoLogger = require('express-pino-logger');
+const logger = require('./services/Logger');
 
 app = express();
 app.use(express.json());
 port = process.env.port || 3000;
 app.use(cors());
+
+// logger cofiguration
+const loggerMiddleware = expressPinoLogger({
+    logger: logger,
+    autoLogging: true
+});
+app.use(loggerMiddleware);
 
 // importing route
 var routes = require('./api/routes/CalculatorRoutes');

@@ -1,31 +1,31 @@
-var express = require('express');
-var cors = require("cors");
+const express = require('express');
+const cors = require('cors');
 const expressPinoLogger = require('express-pino-logger');
 const logger = require('./services/Logger');
 
-app = express();
+const app = express();
 app.use(express.json());
-port = process.env.port || 3000;
+const port = process.env.port || 3000;
 app.use(cors());
 
 // logger cofiguration
 const loggerMiddleware = expressPinoLogger({
-    logger: logger,
-    autoLogging: true
+  logger: logger,
+  autoLogging: true
 });
 app.use(loggerMiddleware);
 
 // importing route
-var routes = require('./api/routes/CalculatorRoutes');
+const routes = require('./api/routes/CalculatorRoutes');
 // register the route
 routes(app);
 
 // route not found middleware
-app.use(function(req, res) {
-    res.status(404).send({
-        url: req.originalUrl + ' not found'
-    })
-})
+app.use(function (req, res) {
+  res.status(404).send({
+    url: req.originalUrl + ' not found'
+  });
+});
 
 app.listen(port);
 

@@ -1,6 +1,6 @@
-const pino = require('pino')
+const pino = require('pino');
 module.exports = pino({
-    transport: {
-        target: 'pino-pretty'
-    }
+  transport: {
+    target: 'pino-pretty'
+  }
 });

@@ -11,6 +11,7 @@ RESTful backend API.
 Mocha tests for calculations.  
 HTTP logging with pino.  
 ES6 coding standard compliancy with jshint.  
+Documentation generation with jsdoc.  
 
 ## Incomplete Features
 Caching - Unsure needs to be cached.  
